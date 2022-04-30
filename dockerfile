@@ -6,7 +6,7 @@ RUN    pip install sqlalchemy.orm
 
 RUN mkdir /templates
 
-COPY *
+COPY ./
 
-ENTRYPOINT ["python"]
-RUN python app.py
+
+CMD["python","app.py"]
