@@ -1,13 +1,9 @@
-FROM python:3.7.4
-RUN pip install sqlalchemy
+FROM python:3.7-slim
+RUN python -m pip install --upgrade pip
 RUN pip install flask
 RUN pip install flask_sqlalchemy
-RUN pip install sqlalchemy.orm
+RUN pip install psycopg2-binary
 
-RUN mkdir /templates
-
+COPY app.py /app.py
 COPY . .
-COPY app.py app.py
-
-
-CMD ["python","app.py"]
+CMD ["python", "app.py"]
