@@ -7,7 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 app = Flask(__name__)
 
-engine = create_engine('sqlite:///C:/Users/1905338/Desktop/ac2/db.db', echo=True)
+engine = create_engine('sqlite:///ac2/db.db', echo=True)
 
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -62,4 +62,6 @@ def show_aluno():
 
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    
